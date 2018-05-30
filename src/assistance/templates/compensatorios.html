@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+    {% block content %}
+    <br>
+    <div class="row">
+      <div class="col s4"></div>
+      <div class="col s4 m4 center">
+        <div class="card-panel grey lighten-2">
+          <span class="white-text">
+            <form action="" method="post">
+              <div class="row">
+                <div class="col s3"></div>
+                <div class="input-field col s5">
+                      {{ formDNI.dni.label }} {{ formDNI.dni }}
+                  </div>
+                  <input type="hidden" value="buscador" name="nombre-formulario"/>
+                  <button class="btn waves-effect waves-light black" type="submit" name="action">
+                    Buscar
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </form>
+          </span>
+        </div>
+      </div>
+    </div>
+    {% if persona != None %}
+    {% if persona != "" %}
+      <table class="highlight centered responsive-table">
+        <thead>
+          <tr><th>Nombre</th><th>Apellido</th><th>DNI</th><th>Compensatorios</th><th>Agregar/Crear</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="green-text text-lighten-1">{{ persona["name"] }}</td>
+            <td class="green-text text-lighten-1">{{ persona["lastname"] }}</td>
+            <td class="green-text text-lighten-1">{{ persona["dni"] }}</td>
+            {% if persona["stock"]== None %}
+            <td class="green-text text-lighten-1">No posee tabla compensatorios</td>
+            {% else: %}
+            <td class="green-text text-lighten-1">{{ persona["stock"] }}</td>
+            {% endif %}
+            <td class="green-text text-lighten-1">
+              <form action="" method="post">
+                <div class="row valign-wrapper">
+                  <div class="col s1"></div>
+                  <div class="input-field col s3">
+                    {{ formCompensatorio.compensatorios.label }} {{ formCompensatorio.compensatorios }}
+                  </div>
+                  <input type="hidden" value="{{ persona["id"] }}" name="id"/>
+                  <input type="hidden" value="actualizador" name="nombre-formulario"/>
+                  <input type="hidden" value="{{ persona["dni"] }}" name="dni"/>
+                  <button class="btn waves-effect waves-light black col s2" type="submit" name="action">
+                    Actualizar
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  {% elif persona == "error": %}
+    <div class="row">
+      <div class="col s4"></div>
+      <div class="col s4 m4 center">
+        <div class="card-panel RED">
+          <span class="white-text">
+            <h5>
+              Error en la busqueda.
+            </h5>
+          </span>
+        </div>
+      </div>
+    </div>
+    {% else: %}
+      <div class="row">
+        <div class="col s4"></div>
+        <div class="col s4 m4 center">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5>
+                Utilice el buscador para visualizar compensatorios.
+              </h5>
+            </span>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% else %}
+    <div class="row">
+      <div class="col s4"></div>
+      <div class="col s4 m4 center">
+        <div class="card-panel red">
+          <span class="white-text">
+            <h5>
+              La persona ingresada no existe.
+            </h5>
+          </span>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endblock %}

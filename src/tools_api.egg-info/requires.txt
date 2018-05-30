@@ -1,0 +1,6 @@
+Flask
+psycopg2
+wtforms
+requests
+gunicorn
+microservices_common

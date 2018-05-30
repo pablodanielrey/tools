@@ -1,0 +1,3 @@
+[console_scripts]
+rest = assistance.api.rest.main:main
+

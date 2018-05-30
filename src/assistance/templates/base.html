@@ -1,0 +1,30 @@
+<html>
+      <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      </head>
+      <body>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="../static/js/materialize.min.js"></script>
+        <div class="navbar-fixed">
+          <nav>
+            <div class="nav-wrapper black">
+              <a href="#" class="brand-logo center">{{ title }}</a>
+              <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/compensatorios">Compensatorios</a></li>
+                <li><a href="/aca">Ausentes con Aviso</a></li>
+                <li><a href="/prueba">Prueba</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <br>
+        <br>
+        <div>{% block content %}{% endblock %}</div>
+      </body>
+    </html>
