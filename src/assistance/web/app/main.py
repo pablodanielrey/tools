@@ -72,7 +72,7 @@ def actualizarCompensatorios(id, compensatorios):
 
 ######################## Crea instancia de aplicacion ##########################
 app = Flask(__name__)
-app.config.from_object(__name__)
+#app.config.from_object(__name__)
 ################################################################################
 ######################## Ruta por defecto / ####################################
 @app.route("/")

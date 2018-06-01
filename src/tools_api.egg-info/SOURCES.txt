@@ -4,6 +4,7 @@ assistance/inicio.py
 assistance/api/__init__.py
 assistance/api/rest/__init__.py
 assistance/api/rest/main.py
+assistance/api/rest/wsgi.py
 assistance/app/__init__.py
 tools_api.egg-info/PKG-INFO
 tools_api.egg-info/SOURCES.txt
