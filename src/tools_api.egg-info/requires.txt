@@ -1,4 +1,5 @@
 Flask
+Flask-OAuthlib
 psycopg2
 wtforms
 requests
